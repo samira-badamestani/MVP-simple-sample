@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Food</string>
+    <string name="loading">Please wait ...</string>
+    <string name="name">Alicia Scott</string>
+    <string name="date">Today 03:14PM </string>
+    <string name="empty_list">oops, List is empty.</string>
+</resources>
