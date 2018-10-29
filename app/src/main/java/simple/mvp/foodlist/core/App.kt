@@ -15,6 +15,7 @@ import kotlin.properties.Delegates
 class App : Application() {
 
     companion object {
+        @JvmStatic
          var api: ApiService? = null
         private val TAG = App::class.java.simpleName
         var instance: App by Delegates.notNull()

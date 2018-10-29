@@ -15,4 +15,7 @@ interface FoodDao {
     @Query("SELECT * from Food")
     fun selectAllFoods(): MutableList<Food>
 
+    @Query("DELETE FROM Food")
+    fun deleteAllFoods()
+
 }

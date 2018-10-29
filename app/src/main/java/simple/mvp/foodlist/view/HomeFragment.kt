@@ -9,18 +9,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_home.*
 import simple.mvp.foodlist.R
-import simple.mvp.foodlist.core.App
-import simple.mvp.foodlist.data.db.AppDatabase
 import simple.mvp.foodlist.data.model.FoodDto
-import simple.mvp.foodlist.data.network.ApiService
+import simple.mvp.foodlist.data.repository.HomeRepository
 
 
 class  HomeFragment: Fragment(),HomeContract.View {
 
     private val TAG: String = HomeFragment::class.java.simpleName
     private var presenter: HomePresenter? = null
-    private var apiService: ApiService?=null
-    private val appDatabase:AppDatabase by lazy { AppDatabase.getInstance() }
+
     companion object {
         val FRAGMENT_NAME: String = HomeFragment::class.java.name
     }
@@ -34,8 +31,7 @@ class  HomeFragment: Fragment(),HomeContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        apiService= App.api
-        presenter=HomePresenter(apiService!!,appDatabase)
+        presenter=HomePresenter(HomeRepository())
         presenter!!.attachView(this)
         presenter!!.getFoods()
 
